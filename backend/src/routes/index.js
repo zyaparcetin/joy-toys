@@ -1,16 +1,16 @@
-/* const express = require('express')
-const User = require('../models/user') // require('../backend/models/user') böyle mi olmali?
-const Product = require('../models/product') // require('../backend/models/product')
+const express = require('express')
+const User = require('../models/user')
+const Product = require('../models/product')
 
-const router = express.Router() */
+const router = express.Router()
 
 /* GET home page. */
-// router.get('/', (req, res) => {
-// res.render('index', { title: `Zeynep's Project : Joy Toys` })
-// })
+router.get('/', (req, res) => {
+  res.render('index', { title: `Zeynep's Project : Joy Toys` })
+})
 
 /* GET initialize */
-/* router.get('/initialize', async (req, res) => {
+router.get('/initialize', async (req, res) => {
   const Kerem = await User.create({ name: 'Kerem', age: 11 })
   const Mete = await User.create({ name: 'Mete', age: 7 })
 
@@ -26,4 +26,4 @@ const router = express.Router() */
   res.sendStatus(200)
 })
 
-module.exports = router */
+module.exports = router

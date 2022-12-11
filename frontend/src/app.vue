@@ -1,6 +1,11 @@
-<script setup>
+<!-- eslint-disable no-unused-vars -->
+<script>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/hello-world.vue'
+
+export default {
+  name: 'App',
+}
 </script>
 
 <template>

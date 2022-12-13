@@ -1,5 +1,5 @@
 {
-  "name": "Joy Toys",
+  "name": "joy-toys",
   "version": "0.0.1",
   "scripts": {
     "dev": "vite --host 0.0.0.0",

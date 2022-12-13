@@ -7,11 +7,13 @@ const logger = require('morgan')
 
 require('./database-connection')
 
+const cors = require('cors')
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
 const productsRouter = require('./routes/products')
 
 const app = express()
+app.use(cors())
 
 // if (app.get('env') === 'development') {
 /* eslint-disable-next-line */

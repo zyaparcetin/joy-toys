@@ -1,6 +1,6 @@
 const request = require('supertest')
 const app = require('../src/app')
-const user = require('../src/models/user')
+// const user = require('../src/models/user')
 
 describe('User endpoints', () => {
   it('POST request to /users should create a user', async () => {
@@ -12,7 +12,7 @@ describe('User endpoints', () => {
       reviews: [],
     }
 
-    const createdUser = (await request(app).post('/users').send(userToCreate)).body
+    const createdUser = (await request(app).post('/api/users').send(userToCreate)).body
 
     expect(createdUser.name).toBe(userToCreate.name)
     expect(createdUser.age).toBe(userToCreate.age)
@@ -22,7 +22,7 @@ describe('User endpoints', () => {
   })
 
   it('GET request to /users should list users', async () => {
-    const userList = (await request(app).get('/users')).body
+    const userList = (await request(app).get('/api/users')).body
     const userExist = userList.length > 0
 
     expect(userExist).toBe(true)
@@ -45,8 +45,8 @@ describe('User endpoints', () => {
       reviews: [],
     }
 
-    const createdUser = (await request(app).post('/users').send(userToCreate)).body
-    const createdProduct = (await request(app).post('/products').send(productToCreate)).body
+    const createdUser = (await request(app).post('/api/users').send(userToCreate)).body
+    const createdProduct = (await request(app).post('/api/products').send(productToCreate)).body
 
     // user.likeProduct(product)
 

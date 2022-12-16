@@ -7,9 +7,9 @@ services:
       context: frontend
       dockerfile: dev.Dockerfile
     labels:
-      - traefik.enable=true
-      - traefik.http.routers.frontend.rule=Host(`joytoys.localhost`)
-      - traefik.http.routers.frontend.entrypoints=web
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.frontend.rule=Host(`joytoys.localhost`)'
+      - 'traefik.http.routers.frontend.entrypoints=web'
     ports:
       - 8080
     expose:
@@ -25,7 +25,7 @@ services:
       dockerfile: dev.Dockerfile
     environment:
      # - MONGODB_CONNECTION_STRING=${MONGODB_CONNECTION_STRING} 
-      - MONGODB_CONNECTION_STRING=mongodb://mongo/joy-toys-local
+      - MONGODB_CONNECTION_STRING=mongodb://mongo/joytoys.localhost
     labels:
       - traefik.enable=true
       - traefik.http.routers.backend.rule=(Host(`joytoys.localhost`) && PathPrefix(`/api`))

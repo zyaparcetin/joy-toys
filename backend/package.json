@@ -1,5 +1,5 @@
 {
-  "name": "Joy Toys",
+  "name": "joy-toys",
   "version": "0.0.1",
   "private": true,
   "description": "My Express + MongoDB + Docker + Jest + Vue Project for Coyotiv  School of Software Engineering",

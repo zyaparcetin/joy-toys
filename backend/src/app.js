@@ -7,18 +7,26 @@ const logger = require('morgan')
 const cors = require('cors')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
+const passport = require('passport')
 const mongoose = require('mongoose')
-const mongooseConnection = require('./database-connection')
+const User = require('./models/user')
+
+/* const mongooseConnection = */ require('./database-connection')
 
 const clientPromise = mongoose.connection.asPromise().then(connection => connection.getClient())
 
 const indexRouter = require('./routes/index')
-// const accountRouter = require('./routes/account')
+const accountRouter = require('./routes/account')
 const usersRouter = require('./routes/users')
 const productsRouter = require('./routes/products')
 
 const app = express()
-app.use(cors())
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  })
+)
 
 // if (app.get('env') === 'development') {
 /* eslint-disable-next-line */
@@ -49,9 +57,9 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(
   session({
+    secret: 'superdupersecuresecret',
     saveUninitialized: false,
     resave: false,
-    // secret: [secret, validateSecret],
     store: MongoStore.create({ clientPromise, stringify: false }),
     cookie: {
       maxAge: 14 * 24 * 60 * 60 * 1000,
@@ -62,13 +70,20 @@ app.use(
   })
 )
 
+app.use(passport.initialize())
+app.use(passport.session())
+
+passport.use(User.createStrategy())
+
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
+
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/api/', indexRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/products', productsRouter)
-// app.use('/api/account', accountRouter)
-app.use('/api/', indexRouter)
+app.use('/api/account', accountRouter)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

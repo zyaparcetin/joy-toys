@@ -1,29 +1,43 @@
 const express = require('express')
-const User = require('../models/user')
-const Product = require('../models/product')
+const passport = require('passport')
 
 const router = express.Router()
+
+const User = require('../models/user')
+// const Product = require('../models/product')
 
 /* GET home page. */
 router.get('/session', (req, res) => {
   res.send(req.user)
 })
 
-/* GET initialize */
-router.get('/initialize', async (req, res) => {
-  const Kerem = await User.create({ name: 'Kerem', age: 11 })
-  const Mete = await User.create({ name: 'Mete', age: 7 })
+router.post('/', async (req, res, next) => {
+  const { name, age, email, password } = req.body
 
-  const teddyBearProduct = await Product.create({ name: 'teddyBear', price: 19.99 })
-  const kittyProduct = await Product.create({ name: 'kitty', price: 14.99 })
-  const bunnyProduct = await Product.create({ name: 'bunny', price: 9.99 })
-  const frogletProduct = await Product.create({ name: 'froglet', price: 9.99 })
+  try {
+    const user = await User.register({ name, age, email }, password)
 
-  await Kerem.likeProduct(teddyBearProduct)
-  await Kerem.addToBasket(teddyBearProduct)
+    return res.send(user)
+  } catch (e) {
+    return next(e)
+  }
+})
 
-  console.log(Kerem)
-  res.sendStatus(200)
+router.post('/session', passport.authenticate('local', { failWithError: true }), async (req, res) => {
+  res.send(req.user)
+})
+
+router.delete('/session', async (req, res, next) => {
+  // eslint-disable-next-line consistent-return
+  await req.logout(err => {
+    if (err) return next(err)
+  })
+
+  req.session.regenerate(err => {
+    if (err) return next(err)
+
+    return res.sendStatus(200)
+  })
 })
 
 module.exports = router

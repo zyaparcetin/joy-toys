@@ -40,7 +40,7 @@ services:
     container_name: mongo
     image: mongo
     ports:
-      - 27019:27017
+      - 27017:27017
   load-balancer:
     container_name: sose-load-balancer
     image: traefik:v2.7

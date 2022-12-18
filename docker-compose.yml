@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   frontend:
     container_name: frontend
@@ -7,9 +7,9 @@ services:
       context: frontend
       dockerfile: dev.Dockerfile
     labels:
-      - 'traefik.enable=true'
-      - 'traefik.http.routers.frontend.rule=Host(`joytoys.localhost`)'
-      - 'traefik.http.routers.frontend.entrypoints=web'
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontend.rule=Host(`joytoys.localhost`)"
+      - "traefik.http.routers.frontend.entrypoints=web"
     ports:
       - 8080
     expose:
@@ -24,8 +24,8 @@ services:
       context: backend
       dockerfile: dev.Dockerfile
     environment:
-     # - MONGODB_CONNECTION_STRING=${MONGODB_CONNECTION_STRING} 
-      - MONGODB_CONNECTION_STRING=mongodb://mongo/joytoys.localhost
+      # - MONGODB_CONNECTION_STRING=${MONGODB_CONNECTION_STRING}
+      - MONGODB_CONNECTION_STRING=mongodb://mongo/joytoys
     labels:
       - traefik.enable=true
       - traefik.http.routers.backend.rule=(Host(`joytoys.localhost`) && PathPrefix(`/api`))
@@ -44,7 +44,7 @@ services:
   load-balancer:
     container_name: sose-load-balancer
     image: traefik:v2.7
-    command: 
+    command:
       - --api.insecure=true
       - --providers.docker=true
       - --providers.docker.exposedbydefault=false
@@ -54,5 +54,4 @@ services:
       - 8083:8080
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      
 # docker-compose run -e MONGODB_CONNECTION_STRING=mongodb://mongo/joy-toys-local app npm run test-coverage (in another terminal)

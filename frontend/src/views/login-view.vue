@@ -7,7 +7,7 @@ export default {
     return {
       email: '',
       password: '',
-      backendError: null
+      backendError: null,
     }
   },
   methods: {
@@ -18,15 +18,15 @@ export default {
       try {
         await this.login({
           email: this.email,
-          password: this.password
+          password: this.password,
         })
 
         this.$router.push('/')
       } catch (e) {
         this.backendError = e.response.data.message
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

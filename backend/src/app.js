@@ -57,9 +57,9 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(
   session({
-    secret: 'superdupersecuresecret',
     saveUninitialized: false,
     resave: false,
+    secret: 'superdupersecuresecret',
     store: MongoStore.create({ clientPromise, stringify: false }),
     cookie: {
       maxAge: 14 * 24 * 60 * 60 * 1000,

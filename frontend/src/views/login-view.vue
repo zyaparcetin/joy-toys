@@ -2,7 +2,7 @@
 import { mapActions } from 'vuex'
 
 export default {
-  name: 'login',
+  name: 'login-view',
   data() {
     return {
       email: '',

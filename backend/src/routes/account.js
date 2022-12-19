@@ -28,10 +28,7 @@ router.post('/session', passport.authenticate('local', { failWithError: true }),
 })
 
 router.delete('/session', async (req, res, next) => {
-  // eslint-disable-next-line consistent-return
-  await req.logout(err => {
-    if (err) return next(err)
-  })
+  await req.logout()
 
   req.session.regenerate(err => {
     if (err) return next(err)

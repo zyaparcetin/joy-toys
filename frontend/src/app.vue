@@ -13,12 +13,12 @@ export default {
 }
 </script>
 <template lang="pug">
-  #app
-    #nav
-      router-link(to="/login") Login
-      router-link(to="/register") Register
-      a(@click="doLogout" href="#") Logout
-    router-view
+#app
+  #nav
+    router-link(to="/login") Login
+    router-link(to="/register") Register
+    a(@click="doLogout" href="#") Logout
+  router-view
 </template>
 
 <style lang="scss">

@@ -1,8 +1,9 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import { mapActions } from 'vuex'
 
 export default {
-  name: 'login-view',
+  name: 'login',
   data() {
     return {
       email: '',

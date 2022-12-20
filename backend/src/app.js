@@ -16,7 +16,7 @@ const User = require('./models/user')
 
 require('./database-connection')
 // eslint-disable-next-line import/extensions
-const socketService = require('./socket-service')
+// const socketService = require('./socket-service')
 
 const clientPromise = mongoose.connection.asPromise().then(connection => connection.getClient())
 
@@ -52,7 +52,7 @@ app.use(
 
 app.set('trust proxy', 1)
 
-app.set('io', socketService)
+// app.set('io', socketService)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))

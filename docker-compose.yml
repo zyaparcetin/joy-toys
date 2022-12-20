@@ -12,8 +12,7 @@ services:
       - "traefik.http.routers.frontend.entrypoints=web"
     ports:
       - 8080
-    expose:
-      - 5173
+      - 5173:5173
     volumes:
       - ./frontend/src:/app/src
       - ./frontend/public:/app/public

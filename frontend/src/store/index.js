@@ -1,11 +1,13 @@
-import axios from 'axios'
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
+
+axios.defaults.baseURL = import.meta.env.VITE_APP_BASE_URL
 
 
 Vue.use(Vuex)
 
-const socket = io()
+const socket = io(process.env.VITE_APP_BASE_URL)
 
 const mutations = {
   SET_USER: 'set user',

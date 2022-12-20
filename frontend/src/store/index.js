@@ -1,12 +1,17 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-useless-catch */
+import axios from 'axios'
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from 'axios'
+
+import io from 'socket.io-client'
 
 axios.defaults.baseURL = import.meta.env.VITE_APP_BASE_URL
-
+axios.defaults.withCredentials = true
 
 Vue.use(Vuex)
 
+// eslint-disable-next-line no-unused-vars
 const socket = io(process.env.VITE_APP_BASE_URL)
 
 const mutations = {
@@ -46,9 +51,9 @@ const store = new Vuex.Store({
       return userOrders.data
     },*/
 
-      // PRODUCT 
-  
-      /* async filterProducts(store, fPrice, FFuel, FGear) {
+    // PRODUCT
+
+    /* async filterProducts(store, fPrice, FFuel, FGear) {
         const filteredProduct = await axios.post('/api/products/filter', fPrice, FFuel, FGear)
         return filteredProduct.data     
       },
@@ -75,29 +80,28 @@ const store = new Vuex.Store({
         return await axios.delete(`/api/products/${id}`)
       },*/
 
-      async fetchSession({ commit }) {
-        const user = await axios.get('/api/account/session')
-        commit(mutations.SET_USER, user.data || null)
-        return user.data
-      },
-      async login({ commit }, credentials) {
-        try {
-          const user = await axios.post('/api/account/session', credentials)
-          commit(mutations.SET_USER, user.data)
-        } catch (e) {
-          throw e
-        }
-      },
-      async register(store, user) {
-        return axios.post('/api/account', user)
-      },
-      async logout({ commit }) {
-        await axios.delete('/api/account/session')
-        commit(mutations.SET_USER, null)
-      },
+    async fetchSession({ commit }) {
+      const user = await axios.get('/api/account/session')
+      commit(mutations.SET_USER, user.data || null)
+    },
+    async login({ commit }, credentials) {
+      try {
+        const user = await axios.post('/api/account/session', credentials)
+        commit(mutations.SET_USER, user.data)
+      } catch (e) {
+        throw e
+      }
+    },
+    async register(store, user) {
+      return axios.post('/api/account', user)
+    },
+    async logout({ commit }) {
+      await axios.delete('/api/account/session')
+      commit(mutations.SET_USER, null)
+    },
 
     //REVIEW?
-    
+  },
   modules: {},
 })
 

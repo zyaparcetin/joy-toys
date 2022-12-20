@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable no-plusplus */
 require('dotenv').config({ debug: process.env.DEBUG, path: '../.env' })
 const createError = require('http-errors')
 const express = require('express')
@@ -9,9 +11,12 @@ const MongoStore = require('connect-mongo')
 const mongoose = require('mongoose')
 const passport = require('passport')
 const cors = require('cors')
+
 const User = require('./models/user')
 
 require('./database-connection')
+// eslint-disable-next-line import/extensions
+const socketService = require('./socket-service')
 
 const clientPromise = mongoose.connection.asPromise().then(connection => connection.getClient())
 
@@ -44,6 +49,10 @@ app.use(
 
     .watch([`${__dirname}/public`, `${__dirname}/views`])
 } */
+
+app.set('trust proxy', 1)
+
+app.set('io', socketService)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -80,6 +89,11 @@ passport.deserializeUser(User.deserializeUser())
 
 app.use(express.static(path.join(__dirname, 'public')))
 
+app.use('/api', (req, res, next) => {
+  req.session.viewCount = req.session.viewCount || 0
+  req.session.viewCount++
+  next()
+})
 app.use('/api/', indexRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/products', productsRouter)

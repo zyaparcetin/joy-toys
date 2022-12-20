@@ -27,8 +27,8 @@ export default {
 </script>
 
 <template lang="pug">
-.box
-CartIcon
+//- .box
+//- CartIcon
  
 //- .productbox  
    h1 New offers
@@ -43,9 +43,9 @@ CartIcon
 
 <style>
 .box {
-  background-color: rgb(114, 202, 234);
-  width: 80%;
-  height: 300px;
+  background-color: rgb(234, 114, 208);
+  width: 200%;
+  height: 60px;
   margin: auto;
 }
 .productbox {

@@ -4,11 +4,6 @@ const Product = require('../models/product')
 
 const router = express.Router()
 
-/* GET home page. */
-router.get('/', (req, res) => {
-  res.render('index', { title: `Zeynep's Project : Joy Toys` })
-})
-
 /* GET initialize */
 router.get('/initialize', async (req, res) => {
   const Kerem = await User.create({ name: 'Kerem', age: 12, email: `kerem@example.com` })

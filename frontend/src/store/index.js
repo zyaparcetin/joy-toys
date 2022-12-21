@@ -1,25 +1,18 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-useless-catch */
 import axios from 'axios'
-//import Vue from 'vue'
-import Vuex from 'vuex'
 
-//import io from 'socket.io-client'
+import { createStore } from 'vuex'
 
 axios.defaults.baseURL = import.meta.env.VITE_APP_BASE_URL
 axios.defaults.withCredentials = true
-
-Vue.use(Vuex)
-
-// eslint-disable-next-line no-unused-vars
-//const socket = io(process.env.VITE_APP_BASE_URL)
 
 const mutations = {
   SET_USER: 'set user',
   SET_PRODUCT: 'set product',
 }
 
-const store = new Vuex.Store({
+export default createStore({
   state: {
     user: null,
     products: null,
@@ -45,6 +38,10 @@ const store = new Vuex.Store({
     async fetchUsers() {
       const usersRequest = await axios.get('/api/users')
       return usersRequest.data
+    },
+    async fetchProducts() {
+      const productsRequest = await axios.get('/api/products')
+      return productsRequest.data
     },
     /*async fetchUserOrders(store, id) {
       const userOrders = await axios.get(`/api/orders/user/${id}`)
@@ -105,8 +102,8 @@ const store = new Vuex.Store({
   modules: {},
 })
 
-export default async function init() {
+/*export default async function init() {
   await store.dispatch('fetchSession')
   await store.dispatch('fetchProducts')
   return store
-}
+}*/

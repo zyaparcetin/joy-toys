@@ -12,7 +12,7 @@ axios.defaults.withCredentials = true
 Vue.use(Vuex)
 
 // eslint-disable-next-line no-unused-vars
-const socket = io(process.env.VITE_APP_BASE_URL)
+//const socket = io(process.env.VITE_APP_BASE_URL)
 
 const mutations = {
   SET_USER: 'set user',

@@ -3,6 +3,8 @@
 import ProductCard from '@/components/product-card.vue'
 //import CartIcon from '@/components/addtoCart.vue'
 //import axios from 'axios'
+import { mapActions } from 'vuex'
+
 export default {
   components: {
     //UserCard,
@@ -15,18 +17,18 @@ export default {
       products: [],
     }
   },
-  /*async created() {
-    const usersRequest = await axios.get('http://localhost:4444/api/users')
-    this.users = usersRequest.data
+  methods: {
+    ...mapActions(['fetchProducts']),
+    async created() {
+      await this.fetchProducts()
+    },
   },
-  async created() {
-    const productsRequest = await axios.get('http://localhost:4444/api/users/products')
-    this.products = productsRequest.data
-  },*/
 }
 </script>
 
 <template lang="pug">
+.main 
+  h1 Welcome to Joy Toys!
 //- .box
 //- CartIcon
  

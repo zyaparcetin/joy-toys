@@ -4,10 +4,13 @@ import { mapActions } from 'vuex'
 export default {
   name: 'App',
   methods: {
-    ...mapActions(['logout']),
+    ...mapActions(['logout', 'fetchSession']),
     async doLogout() {
       await this.logout()
       this.$router.push('/login')
+    },
+    async created() {
+      await this.fetchSession()
     },
   },
 }

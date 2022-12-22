@@ -8,6 +8,6 @@ RUN npm install
 
 ADD public ./public
 
-ADD .prettierrc.json .eslintrc.cjs vite.config.js index.html ./
+ADD .prettierrc.json .eslintrc.cjs vite.config.js index.html .env ./
 
 CMD [ "npm", "run", "dev" ]

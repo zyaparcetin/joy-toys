@@ -16,10 +16,9 @@ router.post('/', async (req, res, next) => {
 
   try {
     const user = await User.register({ name, age, email }, password)
-
-    return res.send(user)
+    res.send(user)
   } catch (e) {
-    return next(e)
+    next(e)
   }
 })
 

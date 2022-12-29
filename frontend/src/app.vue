@@ -20,7 +20,8 @@ export default {
   #nav
     router-link(to="/login") Login
     router-link(to="/register") Register
-    a(@click="doLogout" href="#") Logout
+    a(@click="doLogout" href="#") Logout 
+    //-bir seyler eklemeli miyim mesela product-card?
   router-view
 </template>
 

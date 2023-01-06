@@ -1,26 +1,28 @@
 <script>
 import { mapActions } from 'vuex'
-
+import Navbar from './components/nav-bar.vue'
 export default {
   name: 'App',
+  components: { Navbar },
   methods: {
     ...mapActions(['logout', 'fetchSession']),
-    async doLogout() {
+    /* async doLogout() {
       await this.logout()
       this.$router.push('/login')
     },
     async created() {
       await this.fetchSession()
-    },
+    }, */
   },
 }
 </script>
 <template lang="pug">
 #app
   #nav
-    router-link(to="/login") Login
-    router-link(to="/register") Register
-    a(@click="doLogout" href="#") Logout 
+    Navbar
+    //-router-link(to="/login") Login
+    //-router-link(to="/register") Register
+    //-a(@click="doLogout" href="#") Logout 
     //-bir seyler eklemeli miyim mesela product-card?
   router-view
 </template>

@@ -1,6 +1,7 @@
 <script>
 import ProductCard from '@/components/product-card.vue'
 import { mapActions } from 'vuex'
+
 export default {
   name: 'ProductDetail',
   components: { ProductCard },

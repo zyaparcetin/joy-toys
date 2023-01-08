@@ -21,7 +21,7 @@ nav#sticky-nav.navbar.navbar-expand-lg.bg-light
     #navbarNav.collapse.navbar-collapse
       ul.navbar-nav.justify-content-end
         li.nav-item
-          router-link.nav-link(to="/") Orders&Invoices
+          router-link.nav-link(to="/") Orders&Invoices 
         li.nav-item
           router-link.nav-link(v-if="!user" to="/login") Login
         li.nav-item

@@ -13,7 +13,7 @@ export default {
 </script>
 <template lang="pug">
     
-nav#sticky-nav.navbar.navbar-expand-lg.bg-light
+nav#sticky-nav.navbar.navbar-expand-lg.bg-primary
   .container-fluid
     a.navbar-brand(href='/') JoyToys
     button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
@@ -32,4 +32,5 @@ nav#sticky-nav.navbar.navbar-expand-lg.bg-light
           router-link.nav-link(v-if="user && user.isCompany" to="/add-product") Add Product
         li.nav-item
           a.nav-link(v-if="user" @click="doLogout" href="#") Logout
+
 </template>

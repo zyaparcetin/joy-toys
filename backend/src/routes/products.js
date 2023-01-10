@@ -13,8 +13,9 @@ router.get('/', async (req, res) => {
 
 /* POST product */
 router.post('/', async (req, res) => {
-  const createdProduct = await Product.create(req.body)
-  res.status(201).send(createdProduct)
+  const { name, price } = req.body
+  const createdProduct = await Product.create({ name, price })
+  res.status(200).send(createdProduct)
 })
 
 module.exports = router

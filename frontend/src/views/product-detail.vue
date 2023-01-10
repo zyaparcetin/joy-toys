@@ -14,13 +14,13 @@ export default {
     this.product = await this.fetchProduct(this.$route.params.id)
   },
   methods: {
-    ...mapActions(['fetchProduct']),
+    ...mapActions(['fetchProducts']),
   },
 }
 </script>
 
 <template lang="pug">
-  .about
-    ProductCard(:product="product" v-if="product" )
+.about
+  ProductCard(:product="product" v-if="product" )
     
 </template>

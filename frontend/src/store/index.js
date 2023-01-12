@@ -50,13 +50,9 @@ export default createStore({
 
     // PRODUCT
 
-    /* async filterProducts(store, fPrice, FFuel, FGear) {
-        const filteredProduct = await axios.post('/api/products/filter', fPrice, FFuel, FGear)
+    /* async filterProducts(store, fPrice) {
+        const filteredProduct = await axios.post('/api/products/filter', fPrice)
         return filteredProduct.data     
-      },
-      async fetchCompanyProducts(store, id) {
-        const companyProducts = await axios.get(`/api/products/company/${id}`)
-        return companyProducts.data
       },
       async fetchProducts({commit}) {
         const productsRequest = await axios.get('/api/products')

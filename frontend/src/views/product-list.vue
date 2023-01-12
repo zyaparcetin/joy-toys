@@ -29,7 +29,7 @@ export default {
         router-link(:to="`/products/${pr._id}`")
           h6.card-title {{ pr.name }}
         h6.card-text Price : {{ pr.price }} € 
-        button.btn.btn-primary(v-if="user && !user.isCompany" @click="rent(pr)") Rent Now
+        button.btn.btn-primary(v-if="user" @click="buy(pr)") Buy Now
 </template>
 <style scoped>
 .card {

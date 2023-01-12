@@ -19,7 +19,7 @@ export default {
 
 <template lang="pug">  
 .row
-  h1 hello 2
+  h1 Our Products
   //- h1 {{this.products}}
   .col(v-if = "this.products === null")
     h1 No Products 

@@ -1,5 +1,5 @@
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'all-products',
@@ -16,6 +16,9 @@ export default {
         this.$router.push('/login')
       }
     },
+  },
+  computed: {
+    ...mapState(['user']),
   },
   async created() {
     this.products = await this.fetchProducts()

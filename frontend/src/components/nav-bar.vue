@@ -30,7 +30,7 @@ nav#sticky-nav.navbar.navbar-expand-lg.bg-primary
         li.nav-item
           router-link.nav-link(to="/products") Products
         li.nav-item
-          router-link.nav-link(to="/") Basket
+          router-link.nav-link(to="/")
              i.bi-cart
         li.nav-item
           a.nav-link(v-if="user" @click="doLogout" href="#") Logout

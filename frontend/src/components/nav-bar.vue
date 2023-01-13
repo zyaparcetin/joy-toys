@@ -31,7 +31,7 @@ nav#sticky-nav.navbar.navbar-expand-lg.bg-primary
           router-link.nav-link(to="/products") Products
         li.nav-item
           router-link.nav-link(to="/") Basket
-            //- i.bi-cart
+             i.bi-cart
         li.nav-item
           a.nav-link(v-if="user" @click="doLogout" href="#") Logout
       form.d-flex(role='search')

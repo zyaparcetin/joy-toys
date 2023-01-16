@@ -12,10 +12,14 @@ router.get('/initialize', async (req, res) => {
   Kerem.setPassword('test')
   Mete.setPassword('test')
 
-  const teddyBearProduct = await Product.create({ name: 'teddyBear', price: 19.99 })
-  const kittyProduct = await Product.create({ name: 'kitty', price: 14.99 })
-  const bunnyProduct = await Product.create({ name: 'bunny', price: 9.99 })
-  const frogletProduct = await Product.create({ name: 'froglet', price: 9.99 })
+  const teddyBearProduct = await Product.create({ name: 'Teddy Bear', price: 19.99 })
+  const kittyProduct = await Product.create({ name: 'Kitty', price: 14.99 })
+  const bunnyProduct = await Product.create({ name: 'Bunny', price: 9.99 })
+  const frogletProduct = await Product.create({ name: 'Froglet', price: 9.99 })
+  const duckProduct = await Product.create({ name: 'Duck', price: 4.99 })
+  const dollProduct = await Product.create({ name: 'Doll', price: 19.99 })
+  const horseProduct = await Product.create({ name: 'Horse', price: 14.99 })
+  const birdyProduct = await Product.create({ name: 'Birdy', price: 4.99 })
 
   await Kerem.likeProduct(teddyBearProduct)
   await Kerem.addToBasket(teddyBearProduct)

@@ -13,6 +13,8 @@ export default {
       //-img(:src="`${product.photo}`" width='100%' height='100%')
       .card-body
         h5.card-title {{product.name}} {{product.price}}
+//-.reviews Reviews
+         
 </template>
 
 <style>

@@ -30,7 +30,7 @@ main.hero-image
   justify-content: center;
 }
 .hero-text {
-  text-align: start;
+  text-align: center;
   color: rgb(96, 13, 205);
   align-self: center;
   font-size: 70px;

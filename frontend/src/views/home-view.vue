@@ -19,7 +19,7 @@ main.hero-image
 .hero-image {
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/toys.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.11), rgba(0, 0, 0, 0.11)), url('../assets/toys.jpg');
   min-height: 50em;
   height: 50%;
   align-self: center;
@@ -30,12 +30,12 @@ main.hero-image
   justify-content: center;
 }
 .hero-text {
-  text-align: center;
-  color: white;
+  text-align: start;
+  color: rgb(96, 13, 205);
   align-self: center;
-  font-size: 60px;
+  font-size: 70px;
   font-weight: 600;
   line-height: 70px;
-  margin-bottom: 4rem;
+  margin-bottom: 40rem;
 }
 </style>

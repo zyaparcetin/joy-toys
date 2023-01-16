@@ -13,9 +13,15 @@ router.get('/', async (req, res) => {
 
 /* POST product */
 router.post('/', async (req, res) => {
-  const { name, price } = req.body
-  const createdProduct = await Product.create({ name, price })
+  const { name, price, photo } = req.body
+  const createdProduct = await Product.create({ name, price, photo })
   res.status(200).send(createdProduct)
+})
+
+/* GET product by Id */
+router.get('/:id', async (req, res) => {
+  const product = await Product.findById(req.params.id)
+  res.status(200).send(product)
 })
 
 module.exports = router

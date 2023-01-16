@@ -49,6 +49,10 @@ export default createStore({
     },*/
 
     // PRODUCT
+    async fetchProduct(store, id) {
+      const productRequest = await axios.get(`/api/products/${id}`)
+      return productRequest.data
+    },
 
     /* async filterProducts(store, fPrice) {
         const filteredProduct = await axios.post('/api/products/filter', fPrice)
@@ -59,10 +63,7 @@ export default createStore({
         commit(mutations.SET_PRODUCT, productsRequest.data)
         return productsRequest.data
       },
-      async fetchProduct(store, id) {
-        const productRequest = await axios.get(`/api/products/${id}`)
-        return productRequest.data
-      },
+      
       async addProduct(store, product) {
         await axios.post('/api/products', product)
       },

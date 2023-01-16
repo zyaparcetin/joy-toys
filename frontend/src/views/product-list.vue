@@ -18,7 +18,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(['user']),
+    ...mapState(['user', 'products']),
   },
   async created() {
     this.products = await this.fetchProducts()
@@ -34,28 +34,23 @@ export default {
     .col(v-if = "this.products === null")
       h1 No Products 
     .col
-      .card.col-12.col-sm-6.col-md-4.col-lg-3.mt-2(v-for="pr in this.products")
-        .card-body
-          router-link(:to="`/products/${pr._id}`")
-            h6.card-title {{ pr.name }}
-          h6.card-text Price : {{ pr.price }} € 
-          button.btn.btn-primary( @click="buy(pr)") Buy Now
+      .card.col-12.col-sm-6.col-md-4.col-lg-3.mt-2(v-for="product in this.products")
+        .col
+          img.card-img-top.pt-1(:src="`${product.photo}`" :alt="`${product.name}`")
+        .col
+          .card-body
+            router-link(:to="`/products/${product._id}`")
+              h6.card-title {{ product.name }}
+            h6.card-text Price : {{ product.price }} € 
+            button.btn.btn-primary( @click="buy(product)") Buy Now
 </template>
 <style scoped>
 .card {
-  background-color: #dfe8f1;
+  background-color: #dfe9f1;
 }
-.search-bar-button {
-  max-width: 200px;
-  padding: 10px;
-}
-.center {
+/* .center {
   margin: auto;
   width: 50%;
   padding: 10px;
-}
-label {
-  text-align: center;
-  padding-left: 10px;
-}
+} */
 </style>

@@ -4,6 +4,7 @@ const autopopulate = require('mongoose-autopopulate')
 const productSchema = new mongoose.Schema({
   name: String,
   price: Number,
+  photo: String,
   likedBy: [
     {
       type: mongoose.Schema.Types.ObjectId,

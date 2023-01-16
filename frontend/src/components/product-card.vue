@@ -9,26 +9,23 @@ export default {
 </script>
 
 <template lang="pug">
-.container
-  .card-container
-    .row
-      //- .col-5
-      //-   img(:src="`${product.photo}`" width='100%' height='100%')
-      .col-7
-        h3 {{ product.name }}
-        h5 Product Price: {{ product.price }} €
-        //- button.btn.btn-primary(v-if="user" @click="buy(product)") Buy
-  //- .row.reviews Reviews
-  //-   .col
-  //-     h5(v-show="!product.revs.length") No reviews yet!
-  //-     #product-reviews(v-for="review in product.revs")
-  //-       h6 User name :  {{review.user.name}}
-  //-       h6 Review : {{review.review}}
-  //-       button.btn.btn-primary(v-if="review.user.email === user.email" @click="deleteRev(review)")  Delete review 
+.card
+      //-img(:src="`${product.photo}`" width='100%' height='100%')
+      .card-body
+        h5.card-title {{product.name}} {{product.price}}
 </template>
 
+<style>
+.card {
+  width: 35rem;
+  padding: 5%;
+  display: inline-block;
+  margin: 20px;
+}
+</style>
+
 <style lang="scss" scoped>
-.box {
+.card {
   padding: 2rem;
   border: 1px solid #333;
   background: #dd0;

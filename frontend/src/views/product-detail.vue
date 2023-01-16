@@ -14,7 +14,7 @@ export default {
     this.product = await this.fetchProduct(this.$route.params.id)
   },
   methods: {
-    ...mapActions(['fetchProducts']),
+    ...mapActions(['fetchProduct']),
   },
 }
 </script>

@@ -19,7 +19,7 @@ main.hero-image
 .hero-image {
   display: flex;
   flex-direction: column;
-  background-image: url('https://as1.ftcdn.net/v2/jpg/04/06/96/06/1000_F_406960680_62qFoiz279oVKe48yFCdmvq10F0hrcMo.jpg');
+  background-image: url('../assets/toys3.jpg');
   //https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvczY2LWZvbi0wMDExLWxfMS5qcGc.jpg
   //background-image: linear-gradient(rgba(0, 0, 0, 0.11), rgba(0, 0, 0, 0.11)), url('../assets/toys1.jpg');
   //https://as1.ftcdn.net/v2/jpg/04/06/96/06/1000_F_406960680_62qFoiz279oVKe48yFCdmvq10F0hrcMo.jpg

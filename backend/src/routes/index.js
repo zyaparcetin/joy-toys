@@ -25,7 +25,7 @@ router.get('/initialize', async (req, res) => {
   const bunnyProduct = await Product.create({
     name: 'Bunny',
     price: 9.99,
-    photo: 'https://static-01.daraz.lk/p/mdc/f0fe1492fd7cf23a9f64d6c53643a548.jpg',
+    photo: 'https://i.etsystatic.com/33732634/r/il/fedaff/3797424425/il_794xN.3797424425_9jge.jpg',
   })
   const frogletProduct = await Product.create({
     name: 'Froglet',
@@ -41,7 +41,7 @@ router.get('/initialize', async (req, res) => {
   const dollProduct = await Product.create({
     name: 'Doll',
     price: 19.99,
-    photo: 'https://i.otto.de/i/otto/e1c8cbad-2934-5451-9901-5df0d5c49b82?h=520&w=551&sm=clamp',
+    photo: 'https://i.etsystatic.com/18931976/r/il/533752/4491563059/il_794xN.4491563059_sc80.jpg',
   })
   const horseProduct = await Product.create({
     name: 'Horse',

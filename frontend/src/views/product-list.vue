@@ -34,7 +34,7 @@ export default {
     .col(v-if = "this.products === null")
       h1 No Products 
     .col
-      .card.col-12.col-sm-6.col-md-4.col-lg-3.mt-2(v-for="product in this.products")
+      .card.col-12.col-sm-6.col-lg-4.col-lg-3.mt-2(v-for="product in this.products")
         .col
           img.card-img-top.pt-1(:src="`${product.photo}`" :alt="`${product.name}`")
         .col

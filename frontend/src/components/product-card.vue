@@ -5,6 +5,13 @@ export default {
   data() {
     return {}
   },
+  methods: {
+    // eslint-disable-next-line no-unused-vars
+    buy(product) {
+      // Send a request to the server to add the item to the cart
+      // Update the stock and any other necessary actions
+    },
+  },
 }
 </script>
 

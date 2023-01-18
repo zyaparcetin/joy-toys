@@ -13,7 +13,7 @@ export default {
   img.card-img-top.pt-1(:src="product.photo")
   .card-body
     h5.card-title {{product.name}} {{product.price}}
-    p.card-text it's a super toy
+    p.card-text Its super fluffy and soft fur invites you for a cuddle and hug.
     .position-relative
       button.btn.btn-primary.position-absolute.bottom-10.end-0( @click="buy(product)") Buy Now
 //-.reviews Reviews

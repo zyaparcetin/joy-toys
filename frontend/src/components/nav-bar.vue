@@ -39,3 +39,43 @@ nav#sticky-nav.navbar.navbar-expand-lg.bg-primary
         button.btn.btn-outline-success(type='submit') Search
 
 </template>
+
+<style lang="scss" scoped>
+/* Add styles to the navbar */
+nav#sticky-nav {
+  background-color: #5c6ac4;
+}
+
+/* Add styles to the brand text */
+nav#sticky-nav .navbar-brand {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Add styles to the navigation links */
+nav#sticky-nav .navbar-nav .nav-item .nav-link {
+  color: white;
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
+
+/* Add styles to the active navigation link */
+nav#sticky-nav .navbar-nav .nav-item .nav-link.router-link-active {
+  background-color: #3f51b5;
+  border-radius: 0.25rem;
+}
+
+/* Add styles to the search bar */
+nav#sticky-nav form {
+  background-color: #3f51b5;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+nav#sticky-nav form input {
+  border: none;
+  background-color: white;
+  color: #333;
+}
+</style>

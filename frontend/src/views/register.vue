@@ -7,7 +7,7 @@ export default {
   data() {
     return {
       name: '',
-      //age: null,
+      age: null,
       email: '',
       password: '',
 
@@ -16,13 +16,13 @@ export default {
   },
   methods: {
     ...mapActions(['register']),
-    async submitLogin(e) {
+    async submitRegister(e) {
       e.preventDefault()
 
       try {
         await this.register({
           name: this.name,
-          //age: this.age,
+          age: this.age,
           email: this.email,
           password: this.password,
         })
@@ -43,7 +43,7 @@ export default {
       .card.border-0.shadow.rounded-3.my-5
         .card-body.p-4.p-sm-5
           h5.card-title.text-center.mb-5.fw-light.fs-5 Register &nbsp;
-          form( @submit="submitLogin")            
+          form( @submit="submitRegister")            
             .form-floating.mb-3
               input.form-control(v-model="name" type="text" placeholder="Your name" required)
               label(for='name') Your Name 

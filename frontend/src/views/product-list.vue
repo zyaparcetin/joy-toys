@@ -47,7 +47,13 @@ export default {
 </template>
 <style scoped>
 .card {
-  background-color: #dfe9f1;
+  width: 20rem;
+  padding: 2rem;
+  border: 1px solid #333;
+  background: lightblue;
+  border-radius: 0.3rem;
+  margin: auto;
+  margin-top: 18px;
 }
 .card-img-top {
   height: 24rem;

@@ -34,4 +34,18 @@ router.get('/:id', async (req, res) => {
 //   }
 // })
 
+/* router.post('/buy', async (req, res) => {
+  try {
+    // find the product in the database
+    const product = await findProduct(req.body.productId)
+    // update the stock
+    await updateProductStock(product, req.body.quantity)
+    // add the item to the user's cart
+    await addProductToCart(req.body.productId, req.body.quantity, req.user.id)
+    res.send('Product successfully added to cart')
+  } catch (err) {
+    res.status(500).send(err)
+  }
+}) */
+
 module.exports = router

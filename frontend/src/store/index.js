@@ -53,6 +53,10 @@ export default createStore({
       const productRequest = await axios.get(`/api/products/${id}`)
       return productRequest.data
     },
+    async doSearch() {
+      console.log('Searching: ', this.searchQuery)
+      await this.search(this.searchQuery)
+    },
 
     /* async filterProducts(store, fPrice) {
         const filteredProduct = await axios.post('/api/products/filter', fPrice)

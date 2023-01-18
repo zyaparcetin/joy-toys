@@ -24,15 +24,20 @@ router.get('/:id', async (req, res) => {
   res.status(200).send(product)
 })
 
-/* GET product by search */
-// router.post('/search', async (req, res) => {
-//   try {
-//     const searchResults = await searchDatabase(req.body.searchQuery)
-//     res.send(searchResults)
-//   } catch (err) {
-//     res.status(500).send(err)
-//   }
-// })
+// for searching
+router.get('/', async (req, res) => {
+  const query = {}
+
+  if (req.query.name) {
+    query.name = req.query.name
+  }
+
+  if (req.query.price) {
+    query.price = req.query.price
+  }
+
+  res.send(await Product.find(query))
+})
 
 /* router.post('/buy', async (req, res) => {
   try {

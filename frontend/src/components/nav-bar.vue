@@ -44,6 +44,8 @@ nav#sticky-nav.navbar.navbar-expand-lg.bg-primary
 /* Add styles to the navbar */
 nav#sticky-nav {
   background-color: #5c6ac4;
+  padding: 0.5rem 0;
+  height: 60px;
 }
 
 /* Add styles to the brand text */
@@ -55,6 +57,8 @@ nav#sticky-nav .navbar-brand {
 
 /* Add styles to the navigation links */
 nav#sticky-nav .navbar-nav .nav-item .nav-link {
+  padding: 0.5rem 1rem;
+  line-height: 2;
   color: white;
   font-size: 1.2rem;
   margin-right: 1rem;
@@ -68,9 +72,12 @@ nav#sticky-nav .navbar-nav .nav-item .nav-link.router-link-active {
 
 /* Add styles to the search bar */
 nav#sticky-nav form {
+  position: absolute;
+  right: 20px;
   background-color: #3f51b5;
   padding: 0.5rem;
   border-radius: 0.25rem;
+  width: 500px;
 }
 
 nav#sticky-nav form input {

@@ -2,15 +2,24 @@
 import { mapActions, mapState } from 'vuex'
 export default {
   name: 'NavbarComponent',
+  data() {
+    return {
+      searchQuery: '',
+    }
+  },
   methods: {
     ...mapActions(['logout']),
     async doLogout() {
       await this.logout()
       this.$router.push('/login')
     },
+    ...mapActions(['search']),
+    async doSearch() {
+      await this.search(this.searchQuery)
+    },
   },
   computed: {
-    ...mapState(['user']),
+    ...mapState(['user', 'searchResults']),
   },
 }
 </script>
@@ -35,8 +44,10 @@ nav#sticky-nav.navbar.navbar-expand-lg.bg-primary
         li.nav-item
           a.nav-link(v-if="user" @click="doLogout" href="#") Logout
       form.d-flex(role='search')
-        input.form-control.me-2(type='search' placeholder='Search' aria-label='Search')
-        button.btn.btn-outline-success(type='submit') Search
+        //-input.form-control.me-2(type='search' placeholder='Search' aria-label='Search')
+        //-button.btn.btn-outline-success(type='submit') Search
+        input.form-control.me-2(type='search' placeholder='Search' v-model="searchQuery" aria-label='Search')
+        button.btn.btn-outline-success(type='submit' @click="doSearch") Search
 
 </template>
 

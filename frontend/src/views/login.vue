@@ -32,21 +32,38 @@ export default {
 </script>
 
 <template lang="pug">
-.login
-    form(@submit="submitLogin")
-      h1 Log in to your account
-      label(for="email") Email:&nbsp;
-        input(v-model="email" id="email" type="email" placeholder="Your email" required)
-      label(for="password") Password:&nbsp;
-        input(v-model="password" id="password" type="password" placeholder="Your password" required)
-      input(type="submit" value="Log in")
-    div(v-if="backendError") {{ backendError }}
-    div Don't have an account yet? <router-link to="/register">Register</router-link>
+
+.container
+  .row
+    .col-sm-9.col-md-7.col-lg-5.mx-auto
+      .card.border-0.shadow.rounded-3.my-5
+        .card-body.p-4.p-sm-5
+          h5.card-title.text-center.mb-5.fw-light.fs-5 Sign In
+          form(@submit="submitLogin")
+            .form-floating.mb-3
+              input.form-control(v-model="email" type='email' placeholder='name@example.com' required)
+              label(for='email') Email address
+            .form-floating.mb-3
+              input.form-control(v-model="password" type='password' placeholder='Password' required)
+              label(for='password') Password
+            .d-grid
+              button.btn.btn-primary.btn-login.text-uppercase.fw-bold(type='submit')
+                | Sign
+                | in
+          
+          div.m-2.error-message(v-show="backendError") Wrong Credentials!! Check your password and e-mail!
+          div Don't have an account yet? <router-link to="/register">Register</router-link>
+
 </template>
 
 <style lang="scss" scoped>
-label {
-  display: block;
-  margin: 1rem 0;
+.btn-login {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+}
+.error-message {
+  border: solid 1px red;
+  text-align: center;
 }
 </style>

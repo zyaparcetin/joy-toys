@@ -49,8 +49,8 @@ export default createStore({
       const productsRequest = await axios.get('/api/products')
       return productsRequest.data
     },
-    async addToCart(store, product) {
-      return axios.post(`/api/users/cart`, product)
+    async addToCart(store, productId) {
+      return axios.post(`/api/users/cart`, productId)
     },
     /*async fetchUserOrders(store, id) {
       const userOrders = await axios.get(`/api/orders/user/${id}`)

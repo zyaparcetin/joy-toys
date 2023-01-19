@@ -10,6 +10,7 @@ axios.defaults.withCredentials = true
 const mutations = {
   SET_USER: 'set user',
   SET_PRODUCT: 'set product',
+  SET_CART: 'set cart',
 }
 
 export default createStore({
@@ -17,6 +18,7 @@ export default createStore({
     user: null,
     products: null,
     reviews: null,
+    cart: null,
   },
   mutations: {
     [mutations.SET_USER](state, user) {
@@ -24,6 +26,10 @@ export default createStore({
     },
     [mutations.SET_PRODUCT](state, products) {
       state.products = products
+    },
+    // eslint-disable-next-line no-unused-vars
+    [mutations.SET_CART](state, cart) {
+      state.cart.push(product)
     },
     /*setFilteredProducts( state, filteredProds) {
       state.products= filteredProds      
@@ -43,7 +49,7 @@ export default createStore({
       const productsRequest = await axios.get('/api/products')
       return productsRequest.data
     },
-    async addToBasket(store, product) {
+    async addToCart(store, product) {
       return axios.post(`/api/users/cart`, product)
     },
     /*async fetchUserOrders(store, id) {
@@ -102,6 +108,9 @@ export default createStore({
     },
 
     //REVIEW?
+  },
+  getters: {
+    cartItems: state => state.cart,
   },
   modules: {},
 })

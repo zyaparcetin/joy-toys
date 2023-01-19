@@ -55,10 +55,10 @@ router.get('/initialize', async (req, res) => {
   })
 
   await Kerem.likeProduct(teddyBearProduct)
-  await Kerem.addToBasket(teddyBearProduct)
+  await Kerem.addToCart(teddyBearProduct)
 
   await Mete.likeProduct(frogletProduct)
-  await Mete.addToBasket(frogletProduct)
+  await Mete.addToCart(frogletProduct)
 
   console.log(Kerem)
   res.sendStatus(200)

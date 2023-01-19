@@ -18,7 +18,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(['user', 'products']),
+    ...mapState(['user']),
   },
   async created() {
     this.products = await this.fetchProducts()

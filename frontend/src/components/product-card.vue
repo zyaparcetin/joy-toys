@@ -1,19 +1,21 @@
 <!-- eslint-disable no-undef -->
 <script>
+//import { mapActions } from 'vuex'
+
 export default {
   name: 'ProductCard',
   props: ['product'],
   data() {
     return {}
   },
-  methods: {
+  /* methods: {
     methods: {
       ...mapActions(['addToCart']),
       addToCart() {
         this.addToCart(product)
       },
     },
-  },
+  }, */
 }
 </script>
 

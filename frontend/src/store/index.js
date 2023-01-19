@@ -10,7 +10,7 @@ axios.defaults.withCredentials = true
 const mutations = {
   SET_USER: 'set user',
   SET_PRODUCT: 'set product',
-  SET_CART: 'set cart',
+  //SET_CART: 'set cart',
 }
 
 export default createStore({
@@ -18,7 +18,7 @@ export default createStore({
     user: null,
     products: null,
     reviews: null,
-    cart: null,
+    //cart: null,
   },
   mutations: {
     [mutations.SET_USER](state, user) {
@@ -28,9 +28,9 @@ export default createStore({
       state.products = products
     },
     // eslint-disable-next-line no-unused-vars
-    [mutations.SET_CART](state, cart) {
+    /* [mutations.SET_CART](state, cart) {
       state.cart.push(product)
-    },
+    }, */
     /*setFilteredProducts( state, filteredProds) {
       state.products= filteredProds      
      }*/
@@ -62,10 +62,10 @@ export default createStore({
       const productRequest = await axios.get(`/api/products/${id}`)
       return productRequest.data
     },
-    async doSearch() {
+    /*   async doSearch() {
       console.log('Searching: ', this.searchQuery)
       await this.search(this.searchQuery)
-    },
+    }, */
 
     /* async filterProducts(store, fPrice) {
         const filteredProduct = await axios.post('/api/products/filter', fPrice)
@@ -109,9 +109,10 @@ export default createStore({
 
     //REVIEW?
   },
-  getters: {
+  /*  getters: {
     cartItems: state => state.cart,
-  },
+  }, */
+
   modules: {},
 })
 

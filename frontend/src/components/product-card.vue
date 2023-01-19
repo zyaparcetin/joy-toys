@@ -8,9 +8,9 @@ export default {
   },
   methods: {
     methods: {
-      ...mapActions(['addToBasket']),
+      ...mapActions(['addToCart']),
       addToCart() {
-        this.addToBasket(product)
+        this.addToCart(product)
       },
     },
   },

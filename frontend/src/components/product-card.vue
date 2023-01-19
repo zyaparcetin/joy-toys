@@ -1,6 +1,6 @@
 <!-- eslint-disable no-undef -->
 <script>
-//import { mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'ProductCard',
@@ -8,14 +8,13 @@ export default {
   data() {
     return {}
   },
-  /* methods: {
-    methods: {
-      ...mapActions(['addToCart']),
-      addToCart() {
-        this.addToCart(product)
-      },
+  methods: {
+    ...mapActions(['addToCart']),
+    async addProductToCart(product) {
+      console.log(product)
+      await this.addToCart(product)
     },
-  }, */
+  },
 }
 </script>
 
@@ -26,7 +25,7 @@ export default {
     h5.card-title {{product.name}} {{product.price}}
     p.card-text Its super fluffy and soft fur invites you for a cuddle and hug.
     .position-relative
-      button.btn.btn-primary.position-absolute.bottom-10.end-0( @click="addToCart(product)") Add to Cart
+      button.btn.btn-primary.position-absolute.bottom-10.end-0( @click="addProductToCart(product)") Add to Cart
 //-.reviews Reviews
          
 </template>

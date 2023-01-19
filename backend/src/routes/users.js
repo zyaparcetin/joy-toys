@@ -32,7 +32,7 @@ router.delete('/:userId', async (req, res) => {
 
 // to add basket a product
 router.post('/cart', async (req, res) => {
-  const product = await Product.findById(req.params.productId)
+  const product = await Product.findById(req.body.productId)
   if (!product) throw new Error('Product not found!')
   await req.user.addToCart(product)
   res.sendStatus(200)

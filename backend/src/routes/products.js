@@ -25,7 +25,7 @@ router.get('/:id', async (req, res) => {
 })
 
 // for searching
-router.get('/', async (req, res) => {
+/* router.get('/', async (req, res) => {
   const query = {}
 
   if (req.query.name) {
@@ -37,7 +37,7 @@ router.get('/', async (req, res) => {
   }
 
   res.send(await Product.find(query))
-})
+}) */
 
 /* router.post('/buy', async (req, res) => {
   try {

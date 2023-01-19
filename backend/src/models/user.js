@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
       autopopulate: true,
     },
   ],
-  basket: [
+  cart: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Product',
@@ -48,8 +48,8 @@ class User {
     await product.save()
   }
 
-  async addToBasket(product) {
-    this.basket.push(product)
+  async addToCart(product) {
+    this.cart.push(product)
     await this.save()
   }
 

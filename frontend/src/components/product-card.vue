@@ -12,7 +12,7 @@ export default {
     ...mapActions(['addToCart']),
     async addProductToCart(product) {
       console.log(product)
-      await this.addToCart(product)
+      await this.addToCart({ productId: product._id })
     },
   },
 }

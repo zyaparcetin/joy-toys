@@ -40,10 +40,10 @@ main.hero-image
 .hero-text {
   text-align: center;
   color: rgb(96, 13, 205);
-  align-self: auto;
+  align-self: center;
   font-size: 60px;
-  font-weight: 600;
-  line-height: 70px;
-  margin-bottom: 40rem;
+  font-weight: 650;
+  line-height: 40px;
+  margin-bottom: 100rem;
 }
 </style>

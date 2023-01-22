@@ -4,7 +4,7 @@ export default {
 }
 </script>
 
-</* template lang="pug">
+<template lang="pug">
 .container.mt-5
   .row.mb-3
     .col-12
@@ -47,4 +47,3 @@ export default {
       button.btn.btn-primary.btn-lg Checkout
 
 </template>
- */

@@ -48,6 +48,9 @@ export default {
               input.form-control(v-model="name" type="text" placeholder="Your name" required)
               label(for='name') Your Name 
             .form-floating.mb-3
+              input.form-control(v-model="age" type="number" placeholder="Your age" required)
+              label(for='age') Your Age
+            .form-floating.mb-3
               input.form-control(v-model="email" type="email" placeholder="Your email" required)
               label(for='email') Your Email
             .form-floating.mb-3

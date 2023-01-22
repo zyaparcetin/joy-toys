@@ -1,49 +1,29 @@
 <script>
 export default {
   name: 'cart-view',
+  data() {
+    return {
+      cartItems: [],
+    }
+  },
 }
 </script>
 
 <template lang="pug">
-.container.mt-5
-  .row.mb-3
-    .col-12
-      h1 My Cart
-  .row.mb-3
-    .col-2
-      img(src='https://picsum.photos/100' alt='Product Image')
-    .col-4
-      h2 Product Name
-    .col-2
-      h3 Price
-    .col-2
-      .btn-group.btn-group-lg
-        button.btn.btn-secondary -
-        button.btn.btn-secondary 1
-        button.btn.btn-secondary +
-    .col-2
-      button.btn.btn-danger Delete
-  .row.mb-3
-    .col-2
-      img(src='https://via.placeholder.com/100x100' alt='Product Image')
-    .col-4
-      h2 Product Name
-    .col-2
-      h3 Price
-    .col-2
-      .btn-group.btn-group-lg
-        button.btn.btn-secondary -
-        button.btn.btn-secondary 1
-        button.btn.btn-secondary +
-    .col-2
-      button.btn.btn-danger Delete
-  .row.mb-3
-    .col-8
-      h3 Total:
-    .col-4
-      h3 $0.00
+.container
   .row
-    .col-12.text-center
-      button.btn.btn-primary.btn-lg Checkout
-
+    h1 My Cart
+    .col(v-if = "user.cart === null")
+      h1 No Items in Cart
+    .col.product-list
+      
+      .card.col-12.mt-2(v-for="product in user.cart")
+        .col.img-container
+          img.card-img-top.pt-1(:src="`${product.photo}`" :alt="`${product.name}`")
+        .col
+          .card-body
+            router-link(:to="`/products/${product._id}`")
+              h6.card-title {{ product.name }}
+            h6.card-text Price : {{ product.price }} € 
+            button.btn.btn-primary(@click="checkout") Checkout
 </template>

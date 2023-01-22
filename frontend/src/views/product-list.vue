@@ -47,7 +47,7 @@ export default {
             router-link(:to="`/products/${product._id}`")
               h6.card-title {{ product.name }}
             h6.card-text Price : {{ product.price }} € 
-            button.btn.btn-primary( @click="addProductToCart(product)") Add to Cart
+            //-button.btn.btn-primary( @click="addProductToCart(product)") Add to Cart
 </template>
 <style scoped>
 .card {

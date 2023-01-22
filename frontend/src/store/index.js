@@ -31,9 +31,9 @@ export default createStore({
       state.cart.push({ product })
     }, */
     // eslint-disable-next-line no-unused-vars
-    /* [mutations.SET_CART](state, cart) {
+    [mutations.SET_CART](state, cart) {
       state.cart.push(product)
-    }, */
+    },
     /*setFilteredProducts( state, filteredProds) {
       state.products= filteredProds      
      }*/

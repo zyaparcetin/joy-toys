@@ -10,11 +10,16 @@ export default {
   },
   methods: {
     ...mapActions(['fetchProducts']),
-    async buy() {
+    async addToCart() {
       if (!this.user) {
-        alert('You need to Log-In to buy this product!')
+        alert('You need to Log-In to add this product to cart!')
         this.$router.push('/login')
       }
+    },
+    ...mapActions(['addToCart']),
+    async addProductToCart(product) {
+      console.log(product)
+      await this.addToCart({ productId: product._id })
     },
   },
   computed: {
@@ -43,7 +48,7 @@ export default {
             router-link(:to="`/products/${product._id}`")
               h6.card-title {{ product.name }}
             h6.card-text Price : {{ product.price }} € 
-            button.btn.btn-primary( @click="addToCart(product)") Add to Cart
+            button.btn.btn-primary( @click="addProductToCart(product)") Add to Cart
 </template>
 <style scoped>
 .card {

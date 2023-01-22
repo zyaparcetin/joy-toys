@@ -84,7 +84,8 @@ nav#sticky-nav .navbar-nav .nav-item .nav-link.router-link-active {
 /* Add styles to the search bar */
 nav#sticky-nav form {
   position: absolute;
-  right: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: #3f51b5;
   padding: 0.5rem;
   border-radius: 0.25rem;

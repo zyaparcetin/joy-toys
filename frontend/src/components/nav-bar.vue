@@ -90,11 +90,11 @@ nav#sticky-nav .navbar-nav .nav-item .nav-link.router-link-active {
 nav#sticky-nav form {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-80%);
   background-color: #3f51b5;
   padding: 0.5rem;
   border-radius: 0.25rem;
-  width: 500px;
+  width: 800px;
 }
 
 nav#sticky-nav form input {

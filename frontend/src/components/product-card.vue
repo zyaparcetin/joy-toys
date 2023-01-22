@@ -9,7 +9,13 @@ export default {
     return {}
   },
   methods: {
-    ...mapActions(['addToCart']),
+    ...mapActions(['fetchProducts', 'addToCart']),
+    async addToCart() {
+      if (!this.user) {
+        alert('You need to Log-In to add this product to cart!')
+        this.$router.push('/login')
+      }
+    },
     async addProductToCart(product) {
       console.log(product)
       await this.addToCart({ productId: product._id })

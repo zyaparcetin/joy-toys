@@ -58,6 +58,11 @@ nav#sticky-nav {
   padding: 0.5rem 0;
   height: 60px;
 }
+ul.navbar-nav {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
 
 /* Add styles to the brand text */
 nav#sticky-nav .navbar-brand {

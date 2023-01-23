@@ -1,9 +1,13 @@
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'cart-view',
   props: ['product'],
   data() {
     return {}
+  },
+  computed: {
+    ...mapState(['cart']),
   },
 }
 </script>

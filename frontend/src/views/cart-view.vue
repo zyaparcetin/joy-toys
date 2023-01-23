@@ -21,7 +21,7 @@ export default {
           img.card-img-top.pt-1(:src="`${product.photo}`" :alt="`${product.name}`")
         .col
           .card-body
-            router-link(:to="`/products/${product._id}`")
+            //-router-link(:to="`/products/${product._id}`")
               h6.card-title {{ product.name }}
             h6.card-text Price : {{ product.price }} € 
             button.btn.btn-primary(@click="checkout") Checkout

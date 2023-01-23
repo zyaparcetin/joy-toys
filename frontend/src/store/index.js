@@ -18,7 +18,8 @@ export default createStore({
     user: null,
     products: null,
     reviews: null,
-    //cart: null,
+    //cart: null, ?
+    //cart:[], ?
   },
   mutations: {
     [mutations.SET_USER](state, user) {
@@ -28,7 +29,10 @@ export default createStore({
       state.products = products
     },
     /* [mutations.ADD_TO_CART](state, product) {
-      state.cart.push({ product })
+      state.cart.push({ product }) ?
+       [mutations.SET_CART](state, cart) {
+      state.cart = cart ?
+    },
     }, */
     // eslint-disable-next-line no-unused-vars
     [mutations.SET_CART](state, cart) {

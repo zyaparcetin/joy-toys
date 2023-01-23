@@ -17,7 +17,6 @@ export default createStore({
   state: {
     user: null,
     products: null,
-    reviews: null,
     //cart: null, ?
     //cart:[], ?
   },

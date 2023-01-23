@@ -1,12 +1,15 @@
 <!-- eslint-disable no-undef -->
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'ProductCard',
   props: ['product'],
   data() {
     return {}
+  },
+  computed: {
+    ...mapState(['user']),
   },
   methods: {
     ...mapActions(['fetchProducts', 'addToCart']),

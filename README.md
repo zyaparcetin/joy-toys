@@ -1,5 +1,5 @@
 # Coyotiv - School of Software Engineering
-  ## Express + MongoDB + Docker + Jest + Vue starter Template  
+  ## Express + MongoDB + Docker + Jest + Vue
 &nbsp;
 
 ---

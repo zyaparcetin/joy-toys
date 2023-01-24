@@ -1,10 +1,15 @@
 <script>
-import { mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 export default {
   name: 'cart-view',
   data() {
     return {}
   },
+
+  methods: {
+    ...mapActions(['deleteItem']),
+  },
+
   computed: {
     ...mapState(['user']),
   },
@@ -54,7 +59,7 @@ export default {
   width: 35rem;
   padding: 2rem;
   border: 1px solid #333;
-  background: lightblue;
+  background: lightgrey;
   border-radius: 0.3rem;
   margin: auto;
   margin-top: 18px;

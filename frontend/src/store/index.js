@@ -10,15 +10,15 @@ axios.defaults.withCredentials = true
 const mutations = {
   SET_USER: 'set user',
   SET_PRODUCT: 'set product',
-  //SET_CART: 'set cart',
+  INCREMENT_COUNT: 'increment count',
+  DELETE_ITEM: 'delete item',
 }
 
 export default createStore({
   state: {
     user: null,
     products: null,
-    //cart: null, ?
-    //cart:[], ?
+    count: 0,
   },
   mutations: {
     [mutations.SET_USER](state, user) {
@@ -27,15 +27,15 @@ export default createStore({
     [mutations.SET_PRODUCT](state, products) {
       state.products = products
     },
-    /* [mutations.ADD_TO_CART](state, product) {
-      state.cart.push({ product }) ?
-       [mutations.SET_CART](state, cart) {
-      state.cart = cart ?
+    [mutations.INCREMENT_COUNT](state) {
+      state.count++
     },
-    }, */
     // eslint-disable-next-line no-unused-vars
     [mutations.SET_CART](state, cart) {
       state.cart.push(product)
+    },
+    [mutations.DELETE_ITEM](state, productId) {
+      state.user.cart.items = state.user.cart.items.filter(item => item._id !== productId)
     },
     /*setFilteredProducts( state, filteredProds) {
       state.products= filteredProds      
@@ -68,6 +68,12 @@ export default createStore({
       const productRequest = await axios.get(`/api/products/${id}`)
       return productRequest.data
     },
+    async deleteItem({ commit }, productId) {
+      await axios.delete(`/api/users/cart/items/${productId}`)
+      commit(mutations.DELETE_ITEM, productId)
+      //return removeRequest.data
+      // location.reload()
+    },
     /*   async doSearch() {
       console.log('Searching: ', this.searchQuery)
       await this.search(this.searchQuery)
@@ -96,6 +102,9 @@ export default createStore({
     async fetchSession({ commit }) {
       const user = await axios.get('/api/account/session')
       commit(mutations.SET_USER, user.data || null)
+    },
+    incrementCount({ commit }) {
+      commit(mutations.INCREMENT_COUNT)
     },
     async login({ commit }, credentials) {
       try {

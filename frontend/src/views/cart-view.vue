@@ -1,14 +1,14 @@
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapState } from 'vuex'
 export default {
   name: 'cart-view',
   data() {
     return {}
   },
 
-  methods: {
+  /* methods: {
     ...mapActions(['deleteItem']),
-  },
+  }, */
 
   computed: {
     ...mapState(['user']),
@@ -20,11 +20,11 @@ export default {
 .container
   .row
     h1 My Cart
-    .col(v-if = "user.cart === null")
+    .col(v-if = "user?.cart === null")
       h1 No Items in Cart
     .col.product-list
   .row  
-      .card.col-12.mt-2.clearfix(v-for="product in user.cart")
+      .card.col-12.mt-2.clearfix(v-for="product in user?.cart")
         .col.img-container
           img.card-img-top.pt-1(:src="`${product.photo}`" :alt="`${product.name}`")
         .col
@@ -35,7 +35,7 @@ export default {
             button.btn.btn-secondary -
             button.btn.btn-secondary 1
             button.btn.btn-secondary +
-            button.btn.btn-danger.ml-auto(@click="deleteItem(product._id)") Delete
+              //-button.btn.btn-danger.ml-auto(@click="deleteItem(product._id)") Delete
         .card-body
               p.card-text
                 small.text-muted Last updated 3 mins ago

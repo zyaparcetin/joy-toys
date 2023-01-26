@@ -12,16 +12,16 @@ export default {
     ...mapState(['user']),
   },
   methods: {
-    ...mapActions(['fetchProducts', 'addToCart']),
-    async addToCart() {
+    ...mapActions(['fetchProducts', 'addToCart', 'fetchSession']),
+
+    async addProductToCart(product) {
+      console.log(product)
       if (!this.user) {
         alert('You need to Log-In to add this product to cart!')
         this.$router.push('/login')
       }
-    },
-    async addProductToCart(product) {
-      console.log(product)
-      await this.addToCart({ productId: product._id })
+      await this.addToCart(product._id)
+      await this.fetchSession()
     },
   },
 }

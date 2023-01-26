@@ -10,15 +10,15 @@ axios.defaults.withCredentials = true
 const mutations = {
   SET_USER: 'set user',
   SET_PRODUCT: 'set product',
-  INCREMENT_COUNT: 'increment count',
-  DELETE_ITEM: 'delete item',
+  //INCREMENT_COUNT: 'increment count',
+  //DELETE_ITEM: 'delete item',
 }
 
 export default createStore({
   state: {
     user: null,
     products: null,
-    count: 0,
+    //count: 0,
   },
   mutations: {
     [mutations.SET_USER](state, user) {
@@ -27,16 +27,16 @@ export default createStore({
     [mutations.SET_PRODUCT](state, products) {
       state.products = products
     },
-    [mutations.INCREMENT_COUNT](state) {
+    /*[mutations.INCREMENT_COUNT](state) {
       state.count++
-    },
+    },*/
     // eslint-disable-next-line no-unused-vars
     [mutations.SET_CART](state, cart) {
       state.cart.push(product)
     },
-    [mutations.DELETE_ITEM](state, productId) {
+    /*[mutations.DELETE_ITEM](state, productId) {
       state.user.cart.items = state.user.cart.items.filter(item => item._id !== productId)
-    },
+    },*/
     /*setFilteredProducts( state, filteredProds) {
       state.products= filteredProds      
      }*/
@@ -56,7 +56,7 @@ export default createStore({
       return productsRequest.data
     },
     async addToCart(store, productId) {
-      return axios.post(`/api/users/cart`, productId)
+      return axios.post(`/api/users/cart`, { productId })
     },
     /*async fetchUserOrders(store, id) {
       const userOrders = await axios.get(`/api/orders/user/${id}`)
@@ -68,12 +68,12 @@ export default createStore({
       const productRequest = await axios.get(`/api/products/${id}`)
       return productRequest.data
     },
-    async deleteItem({ commit }, productId) {
+    /* async deleteItem({ commit }, productId) {
       await axios.delete(`/api/users/cart/items/${productId}`)
       commit(mutations.DELETE_ITEM, productId)
       //return removeRequest.data
       // location.reload()
-    },
+    }, */
     /*   async doSearch() {
       console.log('Searching: ', this.searchQuery)
       await this.search(this.searchQuery)
@@ -103,9 +103,9 @@ export default createStore({
       const user = await axios.get('/api/account/session')
       commit(mutations.SET_USER, user.data || null)
     },
-    incrementCount({ commit }) {
+    /* incrementCount({ commit }) {
       commit(mutations.INCREMENT_COUNT)
-    },
+    }, */
     async login({ commit }, credentials) {
       try {
         const user = await axios.post('/api/account/session', credentials)

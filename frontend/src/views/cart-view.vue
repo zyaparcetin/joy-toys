@@ -35,7 +35,7 @@ export default {
             button.btn.btn-secondary -
             button.btn.btn-secondary 1
             button.btn.btn-secondary +
-              //-button.btn.btn-danger.ml-auto(@click="deleteItem(product._id)") Delete
+            button.btn.btn-danger.ml-auto(@click="deleteItem(product._id)") Delete
         .card-body
               p.card-text
                 small.text-muted Last updated 3 mins ago

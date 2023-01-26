@@ -1,5 +1,6 @@
-# Coyotiv - School of Software Engineering
-  ## Express + MongoDB + Docker + Jest + Vue
+# Joy Toys
+Joy Toys is an online toy store. 
+Based on modern web technologies: Node.js, Express.js, Jest, MongoDB, Mongoose, Vue.js, Vuex, Google Cloud, Docker
 &nbsp;
 
 ---

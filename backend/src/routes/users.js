@@ -38,17 +38,18 @@ router.post('/cart', async (req, res) => {
   res.send(req.user.cart)
 })
 
-/* router.delete('/items/:productId', async function (req, res, next) {
+// eslint-disable-next-line func-names
+router.delete(':productId', async function (req, res, next) {
   try {
     // await Cart.findByIdAndDelete(req.body.productId)
     // eslint-disable-next-line no-underscore-dangle
-    await User.cart.findOneAndUpdate({ owner: req.user._id }, { $pull: { items: req.params.productId } })
+    await User.cart.findOneAndUpdate({ $pull: { items: req.params.productId } })
     // req.user.cart.items.pull(req.body.productId)
     // req.user.cart.save()
     res.sendStatus(200)
   } catch (e) {
     next(e)
   }
-}) */
+})
 
 module.exports = router

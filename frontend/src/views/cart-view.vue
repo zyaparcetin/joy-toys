@@ -90,6 +90,10 @@ export default {
   margin: auto;
   margin-top: 18px;
 }
+.card-img-top {
+  height: 30rem;
+  object-fit: cover;
+}
 .btn-group.d-flex {
   margin-right: 10px;
 }

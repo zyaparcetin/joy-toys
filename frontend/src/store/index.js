@@ -11,7 +11,7 @@ const mutations = {
   SET_USER: 'set user',
   SET_PRODUCT: 'set product',
   //INCREMENT_COUNT: 'increment count',
-  DELETE_ITEM: 'delete item',
+  //DELETE_ITEM: 'delete item',
 }
 
 export default createStore({
@@ -34,9 +34,9 @@ export default createStore({
     [mutations.SET_CART](state, cart) {
       state.cart.push(product)
     },
-    [mutations.DELETE_ITEM](state, productId) {
+    /* [mutations.DELETE_ITEM](state, productId) {
       state.user.cart.items = state.user.cart.items.filter(item => item._id !== productId)
-    },
+    }, */
     /*setFilteredProducts( state, filteredProds) {
       state.products= filteredProds      
      }*/
@@ -58,6 +58,9 @@ export default createStore({
     async addToCart(store, productId) {
       return axios.post(`/api/users/cart`, { productId })
     },
+    async deleteItem(store, productId) {
+      return axios.delete(`/api/users/cart/${productId}`)
+    },
     /*async fetchUserOrders(store, id) {
       const userOrders = await axios.get(`/api/orders/user/${id}`)
       return userOrders.data
@@ -68,12 +71,12 @@ export default createStore({
       const productRequest = await axios.get(`/api/products/${id}`)
       return productRequest.data
     },
-    async deleteItem({ commit }, productId) {
+    /* async deleteItem({ commit }, productId) {
       await axios.delete(`/api/users/cart/items/${productId}`) // await axios.delete(`/api/users/cart/${productId}`) yazinca hata veriyor
-      commit(mutations.DELETE_ITEM, productId)
-      //return removeRequest.data
-      // location.reload()
-    },
+      commit(mutations.DELETE_ITEM, productId) */
+    //return removeRequest.data
+    // location.reload()
+    //},
     /*   async doSearch() {
       console.log('Searching: ', this.searchQuery)
       await this.search(this.searchQuery)

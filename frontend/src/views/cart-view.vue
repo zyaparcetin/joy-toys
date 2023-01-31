@@ -1,14 +1,18 @@
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
   name: 'cart-view',
   data() {
     return {}
   },
 
-  /* methods: {
+  methods: {
     ...mapActions(['deleteItem']),
-  }, */
+    async deleteItemFromCart(product) {
+      await this.deleteItem(product._id)
+      await this.fetchSession()
+    },
+  },
 
   computed: {
     ...mapState(['user']),

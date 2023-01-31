@@ -5,20 +5,15 @@ const app = require('../src/app')
 describe('User endpoints', () => {
   it('POST request to /users should create a user', async () => {
     const userToCreate = {
-      name: `Somename${Date.now()}`,
+      name: `Somename1${Date.now()}`,
       age: 12,
-      likes: [],
-      basket: [],
-      reviews: [],
+      email: `Somename1${Date.now()}@example.com`,
     }
 
     const createdUser = (await request(app).post('/api/users').send(userToCreate)).body
 
     expect(createdUser.name).toBe(userToCreate.name)
     expect(createdUser.age).toBe(userToCreate.age)
-    expect(createdUser.likes).toBe(userToCreate.likes)
-    expect(createdUser.basket).toBe(userToCreate.basket)
-    expect(createdUser.reviews).toBe(userToCreate.reviews)
   })
 
   it('GET request to /users should list users', async () => {
@@ -28,14 +23,12 @@ describe('User endpoints', () => {
     expect(userExist).toBe(true)
   })
 
-  it('user should be able to like a product', async () => {
+  it('user should be able to add a product to cart', async () => {
     // create a user
     const userToCreate = {
       name: `Somename${Date.now()}`,
       age: 12,
-      likes: [],
-      basket: [],
-      reviews: [],
+      email: `Somename${Date.now()}@example.com`,
     }
     // create a product
     const productToCreate = {
@@ -47,14 +40,14 @@ describe('User endpoints', () => {
 
     const createdUser = (await request(app).post('/api/users').send(userToCreate)).body
     const createdProduct = (await request(app).post('/api/products').send(productToCreate)).body
+    // eslint-disable-next-line no-underscore-dangle
+    const createdUserCart = (await request(app).post('/api/users/cart').send(createdProduct._id)).body
+    const userCartExist = createdUserCart.length > 0
 
-    // user.likeProduct(product)
+    expect(userCartExist).toBe(true)
 
     expect(createdUser.name).toBe(userToCreate.name)
     expect(createdUser.age).toBe(userToCreate.age)
-    expect(createdUser.likes).toBe(userToCreate.likes)
-    expect(createdUser.basket).toBe(userToCreate.basket)
-    expect(createdUser.reviews).toBe(userToCreate.reviews)
 
     expect(createdProduct.name).toBe(productToCreate.name)
     expect(createdProduct.price).toBe(productToCreate.price)

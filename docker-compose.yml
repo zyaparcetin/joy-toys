@@ -23,9 +23,8 @@ services:
       context: backend
       dockerfile: dev.Dockerfile
     environment:
-      # - MONGODB_CONNECTION_STRING=${MONGODB_CONNECTION_STRING}
+       - MONGODB_CONNECTION_STRING=${MONGODB_CONNECTION_STRING}
       #- MONGODB_CONNECTION_STRING=mongodb://mongo/joytoys
-      - MONGODB_CONNECTION_STRING=mongodb+srv://root:ryPc2s2vJo4W2PmL@cluster0.1se81sd.mongodb.net/joytoys?retryWrites=true&w=majority
     labels:
       - traefik.enable=true
       - traefik.http.routers.backend.rule=(Host(`joytoys.localhost`) && PathPrefix(`/api`))

@@ -7,7 +7,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(['deleteItem']),
+    ...mapActions(['deleteItem', 'fetchSession']),
     async deleteItemFromCart(product) {
       await this.deleteItem(product._id)
       await this.fetchSession()
@@ -39,7 +39,7 @@ export default {
             button.btn.btn-secondary -
             button.btn.btn-secondary 1
             button.btn.btn-secondary +
-            button.btn.btn-danger.ml-auto(@click="deleteItem(product._id)") Delete
+            button.btn.btn-danger.ml-auto(@click="deleteItemFromCart(product)") Delete
         .card-body
               p.card-text
                 small.text-muted Last updated 3 mins ago

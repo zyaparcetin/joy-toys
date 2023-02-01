@@ -40,8 +40,9 @@ describe('User endpoints', () => {
 
     const createdUser = (await request(app).post('/api/users').send(userToCreate)).body
     const createdProduct = (await request(app).post('/api/products').send(productToCreate)).body
+    console.log('heyy', createdProduct)
     // eslint-disable-next-line no-underscore-dangle
-    const createdUserCart = (await request(app).post('/api/users/cart').send(createdProduct._id)).body
+    const createdUserCart = (await request(app).post('/api/users/cart').send({ productId: createdProduct._id })).body
     const userCartExist = createdUserCart.length > 0
 
     expect(userCartExist).toBe(true)

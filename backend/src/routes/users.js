@@ -43,8 +43,8 @@ router.delete('/cart/:productId', async (req, res) => {
   // await User.cart.findByIdAndDelete(req.params.productId)
   // eslint-disable-next-line no-underscore-dangle
   // await User.cart.findOneAndUpdate({ $pull: { items: req.params.productId } })
-  // req.user.cart.items.pull(req.body.productId)
-  // req.user.cart.save()
+  req.user.cart.pull(req.params.productId)
+  await req.user.save()
   res.sendStatus(200)
 })
 
